@@ -10,6 +10,7 @@ import RealityKit
 
 struct ContentView : View {
     @State private var isControlsVisible: Bool = true
+    @State private var showBrowse: Bool = false
     
     
     var body: some View {
@@ -17,7 +18,7 @@ struct ContentView : View {
             
              ARViewContainer()
             
-            ControlView(isControlsVisible: $isControlsVisible)
+            ControlView(isControlsVisible: $isControlsVisible, showBrowse: $showBrowse)
         }
         .edgesIgnoringSafeArea(.all)
     }
