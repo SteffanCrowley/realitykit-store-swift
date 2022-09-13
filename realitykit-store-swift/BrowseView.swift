@@ -64,7 +64,7 @@ struct HorizontalGrid: View {
                         let model = items[index]
                         
                         ItemButton(model: model) {
-                            //todo item
+                            model.asyncLoadModelEntity()
                             print("browse view selected \(model.name)")
                             showBrowse = false
                         }
