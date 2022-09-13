@@ -63,7 +63,7 @@ class Model {
                 self.modelEntity = modelEntity
                 self.modelEntity?.scale *= self.scaleCompensation
                 
-                print("modelEntity for \(self.name) has been loaded")
+                print("modelEntity for \(self.name)and \(filename) has been loaded")
             })
     }
 }
@@ -73,10 +73,10 @@ struct Models {
     
     init() {
         //Main
-        let fender = Model(name: "fender_stratocaster", category: .main, scaleCompensation: 0.32/100)
-        let plane = Model(name: "toy_biplane", category: .main, scaleCompensation: 0.32/100)
-        let robot = Model(name: "toy_robot_vintage", category: .main, scaleCompensation: 0.32/100)
-        let wateringCan = Model(name: "wateringcan", category: .main, scaleCompensation: 0.32/100)
+        let fender = Model(name: "fender_stratocaster", category: .main, scaleCompensation: 25/100)
+        let plane = Model(name: "toy_biplane", category: .main, scaleCompensation: 25/100)
+        let robot = Model(name: "toy_robot_vintage", category: .main, scaleCompensation: 25/100)
+        let wateringCan = Model(name: "wateringcan", category: .main, scaleCompensation: 25/100)
         
         self.all += [fender, plane, robot, wateringCan]
     }
