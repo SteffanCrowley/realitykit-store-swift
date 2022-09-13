@@ -9,6 +9,7 @@ import SwiftUI
 import RealityKit
 
 struct ContentView : View {
+    @EnvironmentObject var placementSettings: PlacementSettings
     @State private var isControlsVisible: Bool = true
     @State private var showBrowse: Bool = false
     
@@ -18,7 +19,12 @@ struct ContentView : View {
             
              ARViewContainer()
             
-            ControlView(isControlsVisible: $isControlsVisible, showBrowse: $showBrowse)
+            if self.placementSettings.selectedModel == nil {
+                ControlView(isControlsVisible: $isControlsVisible, showBrowse: $showBrowse)
+            } else {
+                PlacementView()
+            }
+
         }
         .edgesIgnoringSafeArea(.all)
     }
@@ -43,6 +49,7 @@ struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
         ContentView()
             .previewDevice("iPad Pro (11-inch) (3rd generation)")
+            .environmentObject(PlacementSettings())
     }
 }
 #endif
