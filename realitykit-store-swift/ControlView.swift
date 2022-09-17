@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct ControlView: View {
+    
     @Binding var isControlsVisible: Bool
+    
     @Binding var showBrowse: Bool
     
     var body: some View {
+        
         VStack {
-            
+            //Top right button that decides whether to show bottom menu or not
             ControlVisibilityToggleButton(isControlsVisible: $isControlsVisible)
             
             Spacer()
@@ -26,6 +29,7 @@ struct ControlView: View {
     }
 }
 
+//this is the toggle bottom menu bar button that decides whether to show bottom menu or not
 struct ControlVisibilityToggleButton: View {
     @Binding var isControlsVisible: Bool
     
@@ -52,6 +56,8 @@ struct ControlVisibilityToggleButton: View {
     }
 }
 
+
+//this view shows the bottom button menu
 struct ControlButtonBar: View {
     @Binding var showBrowse: Bool
     
@@ -64,7 +70,7 @@ struct ControlButtonBar: View {
             
             Spacer()
             
-            //browse button
+            //browse button - this button shows the browseview sheet.
             ControlButton(systemIconName: "square.grid.2x2"){
                 print("browse button pressed")
                 showBrowse.toggle()
@@ -87,6 +93,7 @@ struct ControlButtonBar: View {
     }
 }
 
+//this view makes the bottom menu buttons. you simply pass it action and systemIcon and it makes a button.
 struct ControlButton: View {
     
     let systemIconName: String
