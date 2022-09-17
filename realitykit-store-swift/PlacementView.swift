@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//this view determines if we place the model or close out and abandon placement
 struct PlacementView: View {
     @EnvironmentObject var placementSettings: PlacementSettings
     
@@ -17,6 +18,7 @@ struct PlacementView: View {
             
             PlacementButton(systemIconName: "xmark.circle.fill") {
                 print("cancel placement button pressed")
+                //hides placement view by setting it back to nil
                 self.placementSettings.selectedModel = nil
             }
             
@@ -24,8 +26,9 @@ struct PlacementView: View {
             
             PlacementButton(systemIconName: "checkmark.circle.fill") {
                 print("confirm placement button pressed")
+                //confirms model
                 self.placementSettings.confirmedModel = self.placementSettings.selectedModel
-                
+                //hides placement view by setting it back to nil
                 self.placementSettings.selectedModel = nil
             }
             
@@ -36,6 +39,7 @@ struct PlacementView: View {
     }
 }
 
+//this just makes the confirm and cancel button so we don't repeat same code twice
 struct PlacementButton: View {
     let systemIconName: String
     let action: () -> Void

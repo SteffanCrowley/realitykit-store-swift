@@ -19,6 +19,7 @@ struct ContentView : View {
             
              ARViewContainer()
             
+            //if placementSettings view gets toggled, we decide here to show the PlacementView, else its control view
             if self.placementSettings.selectedModel == nil {
                 ControlView(isControlsVisible: $isControlsVisible, showBrowse: $showBrowse)
             } else {

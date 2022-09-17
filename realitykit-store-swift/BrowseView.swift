@@ -7,11 +7,17 @@
 
 import SwiftUI
 
+
+
 struct BrowseView: View {
     @Binding var showBrowse: Bool
     
     var body: some View {
+        
+        //adds nav view to the top
         NavigationView {
+            
+            //creates vertical scrollview
             ScrollView(showsIndicators: false ) {
                 //gridviews for thumbnail
                 ModelsByCategoryGrid(showBrowse: $showBrowse)
@@ -27,6 +33,7 @@ struct BrowseView: View {
     }
 }
 
+//this creates a horizontal grid for each model category
 struct ModelsByCategoryGrid: View {
     @Binding var showBrowse: Bool
     let models = Models()
@@ -43,6 +50,7 @@ struct ModelsByCategoryGrid: View {
     }
 }
 
+
 struct HorizontalGrid: View {
     @EnvironmentObject var placementSettings: PlacementSettings
     @Binding var showBrowse: Bool
@@ -52,7 +60,9 @@ struct HorizontalGrid: View {
     
     var body: some View {
         VStack(alignment:.leading) {
+            
             Seperator()
+            
             Text(title)
                 .font(.title2).bold()
                 .padding(.leading, 22)
@@ -64,10 +74,16 @@ struct HorizontalGrid: View {
                         index in
                         let model = items[index]
                         
+                        //this is what we are telling each model button to do
                         ItemButton(model: model) {
+                            //load entity
                             model.asyncLoadModelEntity()
+                            //sets this model as the selectedModel, also toggles placementview to be shown.
+                            //placementView gets engaged in contentview with environmental object no longer
+                            //being nil
                             self.placementSettings.selectedModel = model
                             print("browse view selected \(model.name)")
+                            //closes the browse view menu after selecting the model
                             showBrowse = false
                         }
 
@@ -80,6 +96,7 @@ struct HorizontalGrid: View {
     }
 }
 
+//this is the thumbnail button of each model
 struct ItemButton: View {
     let model: Model
     let action: () -> Void
@@ -98,6 +115,7 @@ struct ItemButton: View {
     }
 }
 
+//this is a seperator between horizontal category scroll sections
 struct Seperator: View {
     var body: some View {
         Divider()

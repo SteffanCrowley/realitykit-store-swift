@@ -47,6 +47,7 @@ class Model {
         self.scaleCompensation = scaleCompensation
     }
     
+    //this function is run when we selected thumbnail in browseview
     func asyncLoadModelEntity() {
         let filename = self.name + ".usdz"
         
@@ -67,6 +68,7 @@ class Model {
             })
     }
 }
+
 
 struct Models {
     var all: [Model] = []

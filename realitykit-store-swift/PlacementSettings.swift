@@ -9,6 +9,8 @@ import SwiftUI
 import RealityKit
 import Combine
 
+ 
+
 class PlacementSettings: ObservableObject {
     
     //When the user selects a model in BrowseView, this property is set.
