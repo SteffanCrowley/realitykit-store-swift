@@ -9,6 +9,8 @@ import RealityKit
 import ARKit
 import FocusEntity
 
+
+//Creates an instance of ARView
 class CustomARView: ARView {
     
     var focusEntity: FocusEntity?

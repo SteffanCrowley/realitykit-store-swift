@@ -17,6 +17,7 @@ struct ContentView : View {
     var body: some View {
         ZStack(alignment: .bottom) {
             
+            //calls the ARVIEW
              ARViewContainer()
             
             //if placementSettings view gets toggled, we decide here to show the PlacementView, else its control view
@@ -36,6 +37,7 @@ struct ARViewContainer: UIViewRepresentable {
     
     func makeUIView(context: Context) -> CustomARView {
         
+        //setting current ARView to the custom one we made
         let arView = CustomARView(frame: .zero)
         
         //subscribe to sceneEvents.Update
